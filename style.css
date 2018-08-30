@@ -152,7 +152,7 @@ footer {
 .index-aerospace-engineer {
     grid-area: aerospace-engineer;
 
-    background-image: linear-gradient(120deg, white, var(--color-secondary-1-1));
+    background-image: linear-gradient(120deg, transparent, var(--color-secondary-1-1));
 }
 
 .index-aerospace-engineer:hover, .aerospace-engineer--selected {
@@ -164,7 +164,7 @@ footer {
 .index-code {
     grid-area: code;
 
-    background-image: linear-gradient(120deg, white, var(--color-secondary-2-1));
+    background-image: linear-gradient(120deg, transparent, var(--color-secondary-2-1));
 }
 
 .index-code:hover, .code--selected {
