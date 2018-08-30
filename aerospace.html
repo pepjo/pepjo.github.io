@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pep Rodeja Ferrer - Aerospace engineer</title>
+
+<meta name="description" content="Pep Rodeja Ferrer aerospace career">
+<meta name="keywords" content="Pep,Pep Rodeja Ferrer,Aerospace,UPC,Cranfield,Open Cosmos,Engineer">
+<meta name="author" content="Pep Rodeja Ferrer">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+<meta property="og:url"                content="https://pep.rodeja.me" />
+<meta property="og:type"               content="profile" />
+<meta property="og:title"              content="Pep Rodeja Ferrer - Aerospace engineer" />
+<meta property="og:description"        content="Pep Rodeja Ferrer aerospace career" />
+<meta property="og:image"              content="http://pep.rodeja.me/img/pep_profile.jpg" />
+<meta property="og:image:secure_url"   content="https://pep.rodeja.me/img/pep_profile.jpg" />
+<meta property="og:image:alt"          content="Pep Rodeja at VisionHack Moscow" />
+<meta property="og:profile:first_name" content="Pep" />
+<meta property="og:profile:last_name"  content="Rodeja Ferrer" />
+<meta property="og:profile:username"   content="peprodeja" />
+<meta property="og:profile:gender"     content="male" />
+
+<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body class="aerospace-body" itemscope vocab="http://schema.org/" typeof="Person">
+    <script src="./js/three.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/LoaderSupport.js"></script>
+    <script src="./js/OBJLoader2.js"></script>
+    <script src="./js/CopyShader.js"></script>
+    <script src="./js/EffectComposer.js"></script>
+    <script src="./js/SSAARenderPass.js"></script>
+    <script src="./js/RenderPass.js"></script>
+    <script src="./js/MaskPass.js"></script>
+    <script src="./js/ShaderPass.js"></script>
+
+    <nav class="index-main-content">
+
+        <h1 class="index-title"><a property="url" href="/index.html">Hi, I'm <span property="givenName">Pep</span></a></h1>
+        <a href="mailto:pep@rodeja.me" class="index-subtitle">(CONTACT ME)</a>
+
+        <a href="/aerospace.html" class="index-button index-aerospace-engineer aerospace-engineer--selected">
+            I'm an Aerospace Engineer
+        </a>
+
+        <a href="/code.html" class="index-button index-code">
+            I code
+        </a>
+
+        <footer>
+            Made by <span property="name">Pep Rodeja Ferrer</span>
+        </footer>
+
+    </nav>
+
+    <article class="web-main">
+        <p property="alumniOf" typeof="EducationalOrganization">
+            Studied<br/>
+            <em>Enginyeria en Tecnologies Aeroespacials</em><br/>
+            at <em><a property="url "href="https://www.upc.edu"><span property="name">UPC</span>, <span property="location" typeof="Place"><span property="address">Catalunya</span></span></a></em>
+        </p>
+
+        <p>
+            2012-2016
+        </p>
+
+        <p>
+            then,
+        </p>
+
+        <p></p>
+
+        <p>
+            studied<br/>
+            <span property="alumniOf" typeof="EducationalOrganization">
+            <em>Master en Enginyeria Aeronàutica</em><br/>
+            at <em><a property="url" href="https://www.upc.edu"><span property="name">UPC</span>, <span property="location" typeof="Place"><span property="address">Catalunya</span></span></a></em><br/>
+            </span>
+            &<br/>
+            <span property="alumniOf" typeof="EducationalOrganization">
+            <em>MSc. Astronautics and Space</em><br/>
+            at <em><a property="url" href="https://www.cranfield.ac.uk/"><span property="name">Cranfield University</span>, <span property="location" typeof="Place"><span property="address">UK</span></span></a></em>
+            </span>
+        </p>
+
+        <p>
+            2016-2018
+        </p>
+
+        <p>
+            after that,
+        </p>
+
+        <p></p>
+
+        <p property="worksFor" typeof="Organization">
+            worked at <em><a property="url" href="https://open-cosmos.com/"><span property="name">Open Cosmos</span>, <span property="location" typeof="Place"><span property="address">UK</span></span></a></em><br/>
+            as Aerospace Modeling Engineer
+        </p>
+
+        <p>
+            2018-now
+        </p>
+    </article>
+
+    <canvas id="satellite"/>
+
+    <script>
+        var canvas = document.getElementById('satellite')
+
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 60, canvas.clientWidth / canvas.clientHeight, 0.1, 1000 );
+        camera.position.x = -2;
+        camera.position.y = 2;
+        camera.position.z = 0;
+        camera.lookAt( 0, -0.25, 0 );
+        
+        var renderer = new THREE.WebGLRenderer({ canvas , antialias: true, alpha: true });
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( canvas.clientWidth, canvas.clientHeight, false );
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+        var diffuseColor = new THREE.Color().setHSL( 0.5, 0, 0.5 );
+        var material = new THREE.MeshPhysicalMaterial( {
+            color: diffuseColor,
+            metalness: 0,
+            roughness: 1,
+            clearCoat:  0,
+            clearCoatRoughness: 0,
+            reflectivity: 0
+        } );
+
+        var shadowMaterial = new THREE.ShadowMaterial();
+        material.opacity = 1;
+
+        var planegeometry = new THREE.PlaneGeometry( 50, 50, 0, 0 );
+        var plane = new THREE.Mesh( planegeometry, shadowMaterial );
+        plane.castShadow = true;
+        plane.receiveShadow = true;
+        plane.position.y = - 0.2;
+        plane.rotation.x = - Math.PI / 2;
+        scene.add( plane );
+
+        var loader = new THREE.OBJLoader2();
+
+        var satellite
+        var satellitePivot
+
+        // function called on successful load
+        var callbackOnLoad = function ( event ) {
+            satellite = event.detail.loaderRootNode
+            
+            satellite.traverse( function ( child ) {
+
+                if ( child instanceof THREE.Mesh ) {
+
+                    child.material = material;
+
+                    child.scale.set( 0.0005, 0.0005, 0.0005 )
+
+                    child.castShadow = true;
+                    child.receiveShadow = true;
+
+                }
+
+            } );
+
+            satellite.position.z = -0.35;
+
+            satellitePivot = new THREE.Object3D();
+            satellitePivot.add( satellite );
+
+            scene.add( satellitePivot );
+        };
+
+        // load a resource from provided URL synchronously
+        loader.load( './3d/satellite.obj', callbackOnLoad, null, null, null, false );
+
+        var pointLight = new THREE.PointLight( 0xffffff, 1, 100 );
+        pointLight.position.set( 0, 1, 0);
+        pointLight.castShadow = true;
+        pointLight.shadow.camera.near = 0.1;
+        pointLight.shadow.mapSize.width = 2048; // You have there 4K no need to go over 2K
+        pointLight.shadow.mapSize.height = 2048;
+        scene.add( pointLight );
+
+        var light = new THREE.AmbientLight( 0xffffff ); // soft white light
+        scene.add( light );
+
+        // postprocessing
+        composer = new THREE.EffectComposer( renderer );
+
+        ssaaRenderPass = new THREE.SSAARenderPass( scene, camera );
+        ssaaRenderPass.unbiased = false;
+        ssaaRenderPass.sampleLevel = 2;
+        composer.addPass( ssaaRenderPass );
+        
+        copyPass = new THREE.ShaderPass( THREE.CopyShader );
+        copyPass.renderToScreen = true;
+        composer.addPass( copyPass );
+
+        function animate() {
+            requestAnimationFrame( animate );
+
+            
+            if (satellite) {
+
+                satellitePivot.rotation.y += 0.01;
+                // satellite.rotation.y += 0.01;
+            }
+
+            composer.render();
+        }
+        animate();
+
+        window.addEventListener('resize', function () {
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
+
+            var pixelRatio = renderer.getPixelRatio();
+            var newWidth  = Math.floor( canvas.clientWidth / pixelRatio ) || 1;
+            var newHeight = Math.floor( canvas.clientHeight / pixelRatio ) || 1;
+            composer.setSize( newWidth, newHeight );
+        }, false);
+    </script>
+</body>
+
+</html>

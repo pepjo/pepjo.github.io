@@ -1,0 +1,200 @@
+
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Quicksand|Rubik:700');
+
+:root {
+    --color-primary-0: #1243B3;	/* Main Primary color */
+    --color-primary-1: #edf2fd;
+    --color-primary-2: #4F70BD;
+    --color-primary-3: #092A77;
+    --color-primary-4: #011135;
+
+    --color-secondary-1-0: #FFD300;	/* Main Secondary color (1) */
+    --color-secondary-1-1: #fffceb;
+    --color-secondary-1-2: #FFE259;
+    --color-secondary-1-3: #B29300;
+    --color-secondary-1-4: #504200;
+
+    --color-secondary-2-0: #FF7400;	/* Main Secondary color (2) */
+    --color-secondary-2-1: #fff4eb;
+    --color-secondary-2-2: #FFA459;
+    --color-secondary-2-3: #e86a00;
+    --color-secondary-2-4: #502400;
+
+    --color-complement-0: #FFAA00;	/* Main Complement color */
+    --color-complement-1: #FFF1D6;
+    --color-complement-2: #FFC859;
+    --color-complement-3: #B27700;
+    --color-complement-4: #503500;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+footer {
+    grid-area: footer;
+    align-self: end;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.index-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(100vh, auto);
+    grid-template-areas:
+        ". main-content";
+
+    background-image: url(./img/pep_profile.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.aerospace-body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+        "main-content . td ."
+        "main-content . main main";
+
+    background-image:  linear-gradient(120deg, var(--color-secondary-1-1) 25%, white 25%, white 80%, var(--color-secondary-1-1) 80%);
+}
+
+.code-body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+        "main-content . td ."
+        "main-content . main main";
+
+    background-image:  linear-gradient(120deg, var(--color-secondary-2-1) 25%, white 25%, white 80%, var(--color-secondary-2-1) 80%);
+}
+
+
+.index-main-content {
+    grid-area: main-content;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr 2fr 1fr;
+    grid-template-areas:
+        "."
+        "title"
+        "subtitle"
+        "aerospace-engineer"
+        "code"
+        "footer";
+
+    background-image:  linear-gradient(120deg, white 0%, white 70%, var(--color-primary-1) 70%);
+
+    box-shadow: rgba(0,0,0,0.3) 0 0 100px;
+}
+
+.index-title {
+    grid-area: title;
+
+    align-self: end;
+    margin: 0;
+
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+}
+
+.index-subtitle {
+    grid-area: subtitle;
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 12px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.index-subtitle:hover {
+    text-decoration: underline;
+}
+
+.index-button {
+    display: flex;
+
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+    color: var(--color-primary-4);
+
+    cursor: pointer;
+    outline: none;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.index-button:hover {
+    text-decoration: underline;
+}
+
+.index-aerospace-engineer {
+    grid-area: aerospace-engineer;
+
+    background-image: linear-gradient(120deg, white, var(--color-secondary-1-1));
+}
+
+.index-aerospace-engineer:hover, .aerospace-engineer--selected {
+    grid-area: aerospace-engineer;
+
+    background-image: linear-gradient(120deg, var(--color-secondary-1-1), var(--color-secondary-1-2));
+}
+
+.index-code {
+    grid-area: code;
+
+    background-image: linear-gradient(120deg, white, var(--color-secondary-2-1));
+}
+
+.index-code:hover, .code--selected {
+    background-image: linear-gradient(120deg, var(--color-secondary-2-1), var(--color-secondary-2-2));
+}
+
+.web-main {
+    grid-area: main;
+    display: grid;
+  
+    align-self: start;
+    padding-top: 1em;
+    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min-content;
+    align-items: center;
+    
+    text-align: center;
+}
+
+
+#satellite {
+    grid-area: td;
+
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.web-main a {
+    text-decoration: underline;
+}
