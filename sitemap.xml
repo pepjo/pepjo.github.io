@@ -11,19 +11,11 @@
   <loc>http://pep.rodeja.me/</loc>
   <lastmod>2018-08-30T12:18:00+00:00</lastmod>
   <priority>1.00</priority>
-  <xhtml:link 
-               rel="alternate"
-               hreflang="de"
-               href="http://pep.rodeja.me/index.html"/>
 </url>
 <url>
   <loc>http://pep.rodeja.me/index.html</loc>
   <lastmod>2018-08-30T12:18:00+00:00</lastmod>
   <priority>0.00</priority>
-  <xhtml:link 
-               rel="alternate"
-               hreflang="de"
-               href="http://pep.rodeja.me/"/>
 </url>
 <url>
   <loc>http://pep.rodeja.me/aerospace.html</loc>
