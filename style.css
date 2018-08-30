@@ -85,7 +85,6 @@ footer {
 
 .index-main-content {
     grid-area: main-content;
-
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 2fr 2fr 1fr;
@@ -96,9 +95,7 @@ footer {
         "aerospace-engineer"
         "code"
         "footer";
-
-    background-image:  linear-gradient(120deg, white 0%, white 70%, var(--color-primary-1) 70%);
-
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, 1) 70%, var(--color-primary-1) 70%);
     box-shadow: rgba(0,0,0,0.3) 0 0 100px;
 }
 
