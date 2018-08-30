@@ -202,13 +202,19 @@
         copyPass.renderToScreen = true;
         composer.addPass( copyPass );
 
-        function animate() {
+        var lastTime
+        function animate(time) {
+            if (!lastTime) lastTime = time;
+            var deltaT = time - lastTime;
+            lastTime = time;
+
+
             requestAnimationFrame( animate );
 
             
             if (satellite) {
 
-                satellitePivot.rotation.y += 0.01;
+                satellitePivot.rotation.y += 0.0002 * deltaT;
                 // satellite.rotation.y += 0.01;
             }
 
